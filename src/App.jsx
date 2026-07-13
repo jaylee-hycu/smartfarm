@@ -1,14 +1,16 @@
 import { useState } from 'react'
-import Dashboard  from './pages/Dashboard'
-import Benchmark  from './pages/Benchmark'
-import Growth     from './pages/Growth'
-import Consulting from './pages/Consulting'
+import Dashboard   from './pages/Dashboard'
+import Benchmark   from './pages/Benchmark'
+import Growth      from './pages/Growth'
+import Environment from './pages/Environment'
+import Consulting  from './pages/Consulting'
 
 const PAGES = [
-  { id: 'dashboard',  label: '현황',      icon: '📊', component: Dashboard  },
-  { id: 'benchmark',  label: '벤치마킹',  icon: '📐', component: Benchmark  },
-  { id: 'growth',     label: '생육 분석', icon: '🌱', component: Growth     },
-  { id: 'consulting', label: '귀농 컨설팅', icon: '🏡', component: Consulting },
+  { id: 'dashboard',   label: '현황',      icon: '📊', component: Dashboard   },
+  { id: 'benchmark',   label: '벤치마킹',  icon: '📐', component: Benchmark   },
+  { id: 'growth',      label: '생육 분석', icon: '🌱', component: Growth      },
+  { id: 'environment', label: '환경 분석', icon: '🌡️', component: Environment },
+  { id: 'consulting',  label: '귀농 컨설팅', icon: '🏡', component: Consulting },
 ]
 
 export default function App() {
@@ -26,7 +28,6 @@ export default function App() {
             <span className="text-2xl">🌿</span>
             <span className="font-bold text-gray-800 text-lg">스마트팜 벤치마킹</span>
           </div>
-
           <nav className="flex gap-1 ml-auto">
             {PAGES.map(p => (
               <button
