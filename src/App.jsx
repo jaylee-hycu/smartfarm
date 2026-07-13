@@ -1,17 +1,20 @@
 import { useState } from 'react'
-import Dashboard from './pages/Dashboard'
-import Benchmark from './pages/Benchmark'
-import Growth    from './pages/Growth'
+import Dashboard  from './pages/Dashboard'
+import Benchmark  from './pages/Benchmark'
+import Growth     from './pages/Growth'
+import Consulting from './pages/Consulting'
 
 const PAGES = [
-  { id: 'dashboard', label: '📊 현황', component: Dashboard },
-  { id: 'benchmark', label: '📐 벤치마킹', component: Benchmark },
-  { id: 'growth',    label: '🌱 생육 분석', component: Growth },
+  { id: 'dashboard',  label: '현황',      icon: '📊', component: Dashboard  },
+  { id: 'benchmark',  label: '벤치마킹',  icon: '📐', component: Benchmark  },
+  { id: 'growth',     label: '생육 분석', icon: '🌱', component: Growth     },
+  { id: 'consulting', label: '귀농 컨설팅', icon: '🏡', component: Consulting },
 ]
 
 export default function App() {
   const [page, setPage] = useState('dashboard')
   const Current = PAGES.find(p => p.id === page)?.component
+  const currentPage = PAGES.find(p => p.id === page)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -35,7 +38,7 @@ export default function App() {
                     : 'text-gray-500 hover:bg-gray-100'
                 }`}
               >
-                {p.label}
+                {p.icon} {p.label}
               </button>
             ))}
           </nav>
@@ -46,7 +49,7 @@ export default function App() {
       <div className="bg-white border-b border-gray-50">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <h1 className="text-xl font-semibold text-gray-800">
-            {PAGES.find(p => p.id === page)?.label}
+            {currentPage?.icon} {currentPage?.label}
           </h1>
           <p className="text-sm text-gray-400 mt-0.5">
             스마트팜 빅데이터 공공 API 기반 · 전국 2,307개 농가
